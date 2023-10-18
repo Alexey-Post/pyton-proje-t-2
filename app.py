@@ -1,10 +1,14 @@
-from flask import Flask, json, request
-import logging
-
-logging.basicConfig(level=logging.DEBUG)
+from flask import Flask
+from datetime import date
 
 app = Flask(__name__)
 
+# Приймаємо поточну дату
+today = date.today()
+
 @app.route('/')
-def index():
-    return "<p>Hello, world</p>"
+def current_date():
+    return f"<p>Поточна дата: {today}</p>"
+
+if __name__ == '__main__':
+    app.run()
